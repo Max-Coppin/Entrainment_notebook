@@ -7,8 +7,8 @@ def create_animation(time_data, ubar_data, coord_y,Title,labelX,labelY, output_f
     fig, ax = plt.subplots()
     line, = ax.plot([], [], 'b-')
     
-    ax.set_xlim(np.min(ubar_data), np.max(ubar_data))
-    ax.set_ylim(np.min(coord_y), np.max(coord_y))
+    ax.set_xlim(np.nanmin(ubar_data), np.nanmax(ubar_data))
+    ax.set_ylim(np.nanmin(coord_y), np.nanmax(coord_y))
     
     ax.set_xlabel(labelX)
     ax.set_ylabel(labelY)
@@ -26,7 +26,7 @@ def create_animation(time_data, ubar_data, coord_y,Title,labelX,labelY, output_f
         return line,
 
     ani = animation.FuncAnimation(fig, update, frames=len(time_data), init_func=init, blit=True)
-    ani.save(output_file, writer='pillow', fps=15 )
+    ani.save(output_file, writer='ffmpeg', fps=15 )
 
 
 def create_animation_dual(time_data, ubar_data1, ubar_data2, coord_y, Title, labelX, labelY, label1, label2,output_file='animation_dual.gif'):
@@ -34,7 +34,7 @@ def create_animation_dual(time_data, ubar_data1, ubar_data2, coord_y, Title, lab
     line1, = ax.plot([], [], 'b-', label=label1)
     line2, = ax.plot([], [], 'r-', label=label2)
     
-    ax.set_xlim(min(np.min(ubar_data1), np.min(ubar_data2)), max(np.max(ubar_data1), np.max(ubar_data2)))
+    ax.set_xlim(min(np.nanmin(ubar_data1), np.nanmin(ubar_data2)), max(np.nanmax(ubar_data1), np.nanmax(ubar_data2)))
     ax.set_ylim(np.min(coord_y), np.max(coord_y))
     
     ax.set_xlabel(labelX)
@@ -58,5 +58,5 @@ def create_animation_dual(time_data, ubar_data1, ubar_data2, coord_y, Title, lab
         return line1, line2
 
     ani = animation.FuncAnimation(fig, update, frames=len(time_data), init_func=init, blit=True)
-    ani.save(output_file, writer='pillow', fps=15)
+    ani.save(output_file, writer='ffmpeg', fps=15)
 
