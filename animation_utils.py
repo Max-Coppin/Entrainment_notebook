@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
 
-def create_animation(time_data, ubar_data, coord_y,Title,labelX,labelY, output_file='animation.gif'):
+def create_animation(time_data, ubar_data,xlim_inf,xlim_sup, coord_y,Title,labelX,labelY, output_file='animation.gif'):
     fig, ax = plt.subplots()
     line, = ax.plot([], [], 'b-')
     
-    ax.set_xlim(np.nanmin(ubar_data), np.nanmax(ubar_data))
+    ax.set_xlim(xlim_inf,xlim_sup)
     ax.set_ylim(np.nanmin(coord_y), np.nanmax(coord_y))
     
     ax.set_xlabel(labelX)
@@ -29,12 +29,12 @@ def create_animation(time_data, ubar_data, coord_y,Title,labelX,labelY, output_f
     ani.save(output_file, writer='ffmpeg', fps=15 )
 
 
-def create_animation_dual(time_data, ubar_data1, ubar_data2, coord_y, Title, labelX, labelY, label1, label2,output_file='animation_dual.gif'):
+def create_animation_dual(time_data, ubar_data1, ubar_data2,xlim_inf,xlim_sup, coord_y, Title, labelX, labelY, label1, label2,output_file='animation_dual.gif'):
     fig, ax = plt.subplots()
     line1, = ax.plot([], [], 'b-', label=label1)
     line2, = ax.plot([], [], 'r-', label=label2)
     
-    ax.set_xlim(min(np.nanmin(ubar_data1), np.nanmin(ubar_data2)), max(np.nanmax(ubar_data1), np.nanmax(ubar_data2)))
+    ax.set_xlim(xlim_inf,xlim_sup)
     ax.set_ylim(np.min(coord_y), np.max(coord_y))
     
     ax.set_xlabel(labelX)

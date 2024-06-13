@@ -133,7 +133,7 @@ data.load_data('EXP12', 'LAB', folder    + data_type_lab +'EXP12_lab.nc')
 data.load_data('EXP13', 'STEREO', folder + data_type_Stereo +'EXP13_STEREO.nc')
 data.load_data('EXP13', 'ADV', folder    + data_type_ADV +'EXP13_ADV.nc')
 data.load_data('EXP13', 'LAB', folder    + data_type_lab +'EXP13_lab.nc')
-#data.load_data('EXP13', 'JAI', folder    + data_type_Jai +'EXP13_Jai.nc')
+data.load_data('EXP13', 'JAI', folder    + data_type_Jai +'EXP13_Jai.nc')
 #data.load_data('EXP13', 'PROBE_T', folder    + data_type_Probe +'EXP13_T.nc')
 
 
