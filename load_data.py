@@ -39,7 +39,7 @@ class Data:
 # Initialiser le gestionnaire de données et charger les fichiers
 data = Data()
 
-folder = '../data_KP/'
+folder = '/Volumes/Data/data_KP/'
 data_type_Stereo = 'Stereo_KP/'
 data_type_Jai = 'PIV_JAI_KP/'
 data_type_lab ='labview_KP/'
